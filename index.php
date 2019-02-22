@@ -33,47 +33,46 @@
 
 <!-- form content -->
 <section id="img" >
-    <div class="container center p-5">
+    <div class="container justify-content-center p-5">
         <div class="row">
-            <div class="col-md-6">
-            <form method="post" action="" enctype="multi-part/form data">
+            <div class="col-md-6 col-offeset-3">
+            <form action="checkout.php" method="POST" enctype="multi-part/form data">
             <h1 class="mb-3">REGENT TASK FORM</h1>
+                <!-- name input feild -->
                 <div class="form-group">
-                    <input type="text" class="form-control" id="exampleInputName" placeholder="Enter Your Name">
+                    <input type="text" class="form-control" name="name"  placeholder="Enter Your Name">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1"  placeholder="Enter Email Address">
+                    <input type="email" class="form-control" name="email"   placeholder="Enter Email Address">
                 </div>                
                 <div class="form-group">
-                    <input type="password" class="form-control" id="exampleInputPhone" placeholder="Enter You mobile Number">
+                    <input type="tel" class="form-control" name="phone"  placeholder="Enter You mobile Number">
                 </div>
-                <h3>Service</h3>
+                <h3>Services <small style="font-size: 14px; color: green"> You can select multiple services</small></h3>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" name="editing">
                     <label class="form-check-label" for="exampleCheck1">Editing<span style="color: red"> ( Price: $100 )</span></label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input"  name="proofreading">
                     <label class="form-check-label" for="exampleCheck1">Proofreading<span style="color: red"> ( Price: $200 )</span></label>
                 </div>
                 <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <input type="checkbox" class="form-check-input" name="formatting">
                     <label class="form-check-label" for="exampleCheck1">Formatting<span style="color: red"> ( Price: $500 )</span></label>
-                </div>               
-                
-                <div class="input-group mb-3">                            
+                </div> 
+
+                <div class="input-group ">
                     <div class="input-group-prepend">
-                        <button class="input-group-text" id="inputGroupFileAddon01">Upload</button>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Browse</span>
                     </div>
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>                       
-                    </div>                    
+                    <input type="file" class="form-control" name="file">
                 </div>
+
                 <div class="form-group">
-                <small><span style="color: red"> ****</span>Only upload Pdf or doc file format only</small>                  
+                    <small><span style="color: red"> ****</span>Only upload Pdf or doc file format only</small>                  
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
             </div>
         </div>
