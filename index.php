@@ -36,17 +36,17 @@
     <div class="container justify-content-center p-5">
         <div class="row">
             <div class="col-md-6 col-offeset-3">
-            <form action="checkout.php" method="POST" enctype="multi-part/form data">
+            <form action="checkout.php" method="POST" enctype="multipart/form-data">
             <h1 class="mb-3">REGENT TASK FORM</h1>
                 <!-- name input feild -->
                 <div class="form-group">
-                    <input type="text" class="form-control" name="name"  placeholder="Enter Your Name">
+                    <input type="text" class="form-control" name="name"  placeholder="Enter Your Name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" name="email"   placeholder="Enter Email Address">
+                    <input type="email" class="form-control" name="email"   placeholder="Enter Email Address" required>
                 </div>                
                 <div class="form-group">
-                    <input type="tel" class="form-control" name="phone"  placeholder="Enter You mobile Number">
+                    <input type="tel" class="form-control" name="phone"  placeholder="Enter You mobile Number" required>
                 </div>
                 <h3>Services <small style="font-size: 14px; color: green"> You can select multiple services</small></h3>
                 <div class="form-group form-check">
@@ -61,12 +61,10 @@
                     <input type="checkbox" class="form-check-input" name="formatting">
                     <label class="form-check-label" for="exampleCheck1">Formatting<span style="color: red"> ( Price: $500 )</span></label>
                 </div> 
+                
 
-                <div class="input-group ">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Browse</span>
-                    </div>
-                    <input type="file" class="form-control" name="file">
+                <div class="form-group ">                    
+                    <input type="file"  name="doc" required>
                 </div>
 
                 <div class="form-group">
