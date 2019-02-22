@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+/* navbar style */
+.indigo{
+    background-color: orange;
+}
+
+/* section style */
+#img{
+    background: url('img/bgimg.jpeg');
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+
+}
