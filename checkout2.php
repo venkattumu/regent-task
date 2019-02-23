@@ -34,9 +34,6 @@ if(isset($_POST['submit'])){
     move_uploaded_file($tempname, $location.$filename);
 
 
-
-
-
 }
 
 
@@ -47,7 +44,7 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Regent | Checkout</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- custom stylesheet -->
@@ -86,50 +83,23 @@ if(isset($_POST['submit'])){
                             <?php if(isset($proofreading) && isset($priceProof)){echo $proofreading. ': $'.$priceProof; } ?><br>
                             <?php if(isset($formatting) && isset($priceForm)){echo $formatting. ': $'.$priceForm; } ?>
                         </p>
-                        
 
-                        
+
                         <?php
                         $total = 0;
-
-                            // single serice selected
-                            if(isset($priceEdit) && empty($priceProof) &&  empty($priceForm)){
-                                $total = number_format($priceEdit);
-                            } 
-                            if(isset($priceProof) && empty($priceEdit) &&  empty($priceForm)){
-                                $total = number_format($priceProof);
-                            } 
-
-                            if(isset($priceForm) && empty($priceProof) &&  empty($priceEdit)){
-                                $total = number_format($priceForm);
+                        if(isset($priceEdit) ){
+                            $total = number_format($priceEdit);
+                            if(isset($priceProof)){
+                                $total = number_format($priceProof + $priceEdit);
+                                if(isset($priceForm) ){
+                                    $total = number_format($priceForm + $priceProof + $priceEdit);
+                                }
                             }
-
-                            // dual service selected
-                            if (isset($priceEdit) && isset($priceProof) && empty($priceForm)) {
-                                $total = number_format($priceEdit + $priceProof);
-                            }
-                            if (isset($priceForm) && isset($priceProof) && empty($priceEdit)) {
-                                $total = number_format($priceForm + $priceProof);
-                            }
-                            if (isset($priceEdit) && isset($priceForm) && empty($priceProof)) {
-                                $total = number_format($priceEdit + $priceForm);
-                            }
-
-                            // all services selected
-                            if (isset($priceForm) && isset($priceProof) &&  isset($priceEdit)) {
-                                $total = number_format($priceEdit + $priceProof + $priceForm);
-                            }
-
-                             
                             
-
-
-
-
+                        }
                         //     if(isset($priceEdit) ){
                         //         $total = number_format($priceEdit);
-
-                        //         if(isset($priceProof) ){
+                        //         if(isset($priceProof)){
                         //             $total = number_format($priceProof + $priceEdit);
                         //             if(isset($priceForm) ){
                         //                 $total = number_format($priceForm + $priceProof + $priceEdit);
@@ -148,15 +118,14 @@ if(isset($_POST['submit'])){
                         //      $total = number_format($priceForm);
                         // }
                         ?>
-                        <p class="footer">Total = <?php if(isset($total)){ echo '$'. $total; } ?></p>
-                        <!-- <a href="#" class="btn btn-primary">Proceed To Pay</a> -->
 
-                        <form action="pay.php" method="post">
-                            <input type="hidden" name="name" value= "<?php echo $name; ?>">
-                            <input type="hidden" name="email" value= "<?php echo $email; ?>">
-                            <input type="hidden" name= "phone" value= "<?php echo $phone; ?>">                            
-                            <input type="hidden" name="total" value= "<?php echo $total; ?>">
-                            <input type="submit" name="pay" value= "Proceed To Pay<?php echo $total; ?>" class="btn btn-primary">                            
+                        <p class="footer">Total = <?php if(isset($total)){ echo '$'. $total; } ?></p>
+                       <!-- <a href="#" class="btn btn-primary">Proceed To Pay</a>-->
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="X3477RCC98JZ6">
+                            <input type="image" src="https://www.paypalobjects.com/en_GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer,                               easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
                         </form>
 
                     </div>

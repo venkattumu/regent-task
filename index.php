@@ -64,7 +64,7 @@
                 
 
                 <div class="form-group ">                    
-                    <input type="file"  name="doc" required>
+                    <input type="file"  name="doc" accept=".pdf,.docx"  required>
                 </div>
 
                 <div class="form-group">
